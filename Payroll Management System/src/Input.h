@@ -47,6 +47,11 @@ namespace MNGSYS {
 
 	private:
 
+		template <typename T, typename R, typename RV>
+		R DefaultCallback(T& inputVar) {
+			return RV;
+		}
+
 		template <typename T>
 		void WaitUntilInput(T& inputVar) {
 			while (true) {
