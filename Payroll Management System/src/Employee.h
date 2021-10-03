@@ -60,14 +60,14 @@ namespace EmployeeSys {
 			size_t phoneNo;
 			std::string emailAddress;
 			std::string homeAddress;
-		};
+		} contact;
 
 		struct NOKContact {
 			std::string relationship;
 			size_t phoneNo;
 			std::string emailAddress;
 			std::string homeAddress;
-		};
+		} NOKcontact;
 	};
 
 	struct ContractHourly {

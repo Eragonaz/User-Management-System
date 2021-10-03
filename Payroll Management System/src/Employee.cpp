@@ -11,7 +11,7 @@ namespace EmployeeSys {
 	}
 
 	Employee::Employee(const size_t userid, const std::string& username, const std::string& password, MNGSYS::Input* inputHandler) 
-		: User(userid, username, password, inputHandler) {		
+		: User(userid, username, password, inputHandler) {
 	}
 
 }
