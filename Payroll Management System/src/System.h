@@ -55,15 +55,13 @@ namespace MNGSYS {
 		const T* PromptSignUp(bool persistentMode = false) {
 			std::string username;
 			std::string password;
-			std::string msg1 = "username";
-			std::string msg2 = "password";
 
 			printDiv(true);
 			std::cout << "[SYSTEM]: You are now signing up:" << std::endl;
 
 			for (size_t i = 0; i < PERSISTENT_LOGIN_ATTEMPTS; i++) {
-				mInputHandler->GetResponse<std::string>(msg1, username);
-				mInputHandler->GetResponse<std::string>(msg2, password);
+				mInputHandler->GetResponse<std::string>("username", username);
+				mInputHandler->GetResponse<std::string>("password", password);
 
 				const T* newUser = UserSignUp<T>(username, password);
 

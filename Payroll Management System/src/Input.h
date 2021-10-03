@@ -17,14 +17,14 @@ namespace MNGSYS {
 	class Input {
 	public:
 		template <typename T>
-		void GetResponse(std::string& rMsg, T& rResponse) {
+		void GetResponse(const std::string& rMsg, T& rResponse) {
 			std::cout << "\nPlease input your " + rMsg + ":" << std::endl;
 			WaitUntilInput(rResponse);
 			std::cout << std::endl;
 		}
 
 		template <typename T>
-		void GetResponseThen(std::string& rMsg, T& rResponse, void (*callback)(T& rResponse)) {
+		void GetResponseThen(const std::string& rMsg, T& rResponse, void (*callback)(T& rResponse)) {
 			std::cout << "\nPlease input " + rMsg + ":" << std::endl;
 			WaitUntilInput(rResponse);
 			std::cout << std::endl;
@@ -32,7 +32,7 @@ namespace MNGSYS {
 		}
 
 		template <typename T>
-		void GetResponseWithReq(std::string& rMsg, T& rResponse, bool (*callback)(T& rResponse)) {
+		void GetResponseWithReq(const std::string& rMsg, T& rResponse, bool (*callback)(T& rResponse)) {
 			std::cout << "\nPlease input " + rMsg + ":" << std::endl;
 			
 			WaitUntilInput(rResponse);
