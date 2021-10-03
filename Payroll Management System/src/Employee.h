@@ -60,14 +60,14 @@ namespace EmployeeSys {
 			size_t phoneNo;
 			std::string emailAddress;
 			std::string homeAddress;
-		};
+		} contact;
 
 		struct NOKContact {
 			std::string relationship;
 			size_t phoneNo;
 			std::string emailAddress;
 			std::string homeAddress;
-		};
+		} NOKcontact;
 	};
 
 	struct ContractHourly {
@@ -93,8 +93,8 @@ namespace EmployeeSys {
 		Employee(const Employee& c) = delete;
 		Employee(Employee&& m) = delete;
 
-		//std::vector<MonthlyPayrollInfo> SalaryRecord;
-		//PersonalDetails PersonalDetails;
+		std::vector<MonthlyPayrollInfo> SalaryRecord;
+		PersonalDetails PersonalDetails;
 	};
 
 }
