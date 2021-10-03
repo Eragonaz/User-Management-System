@@ -93,8 +93,8 @@ namespace EmployeeSys {
 		Employee(const Employee& c) = delete;
 		Employee(Employee&& m) = delete;
 
-		//std::vector<MonthlyPayrollInfo> SalaryRecord;
-		//PersonalDetails PersonalDetails;
+		std::vector<MonthlyPayrollInfo> SalaryRecord;
+		PersonalDetails PersonalDetails;
 	};
 
 }
