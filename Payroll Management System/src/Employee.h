@@ -88,7 +88,6 @@ namespace EmployeeSys {
 		Employee(const size_t userid, const std::string& username, const std::string& password, MNGSYS::Input* inputHandler);
 
 	public:
-		int x;
 
 	private:
 		Employee(const Employee& c) = delete;

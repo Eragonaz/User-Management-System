@@ -18,7 +18,6 @@ int main() {
 		system.PromptSignIn();
 
 		Employee* e = system.DerivedUserType<Employee>(system.GetActiveUser()->GetNonConst());
-		std::cout << e->x << std::endl;
 	}
 
 	Input::DestroyInput();
