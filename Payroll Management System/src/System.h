@@ -27,17 +27,19 @@ namespace MNGSYS {
 	void printDiv(bool newlineAbove = false);
 
 	struct SystemCache {
-		struct ActiveUser {
+		struct ActiveUserInfo {
 			size_t userid;
 			std::string username;
 
-			ActiveUser() : userid(0), username("error") {
+			ActiveUserInfo() : userid(0), username("error") {
 				std::cout << "Active user created" << std::endl;
 			};
-			ActiveUser(const ActiveUser& c) = delete;
-		} user;
+			ActiveUserInfo(const ActiveUserInfo& c) = delete;
+		} userInfo;
 
-		SystemCache() : user() {
+		User* user;
+
+		SystemCache() : userInfo(), user(USER_NOT_FOUND) {
 			std::cout << "Cache created." << std::endl;
 		}
 		SystemCache(const SystemCache& c) = delete;
@@ -93,7 +95,7 @@ namespace MNGSYS {
 				const size_t userid = mUsers.size() + 1;
 
 				if (!doesUserExist(userid)) {
-					T* newT = new T(userid, username, password);
+					T* newT = new T(userid, username, password, mInputHandler);
 					User* newUser = reinterpret_cast<User*>(newT);
 					if (newUser) {
 						mUsers.emplace_back(newUser);
@@ -132,7 +134,8 @@ namespace MNGSYS {
 
 		const User* AddAdministator(const std::string& username = "admin", const std::string& password = "admin");
 
-		const SystemCache::ActiveUser& GetActiveUser() const;
+		const SystemCache::ActiveUserInfo& GetActiveUserInfo() const;
+		const User* GetActiveUser() const;
 		void PrintActiveUser() const;
 
 		System(Input* mInputHandler);
