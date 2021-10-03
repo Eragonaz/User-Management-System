@@ -44,22 +44,31 @@ namespace MNGSYS {
 	}
 
 	void System::SetActiveUser(const size_t& userid, const std::string& username) {
-		mCached.user.userid = userid;
-		mCached.user.username = username;
+		const User* user = getUserFromUserid(userid);
+		if (user) {
+			mCached.userInfo.userid = userid;
+			mCached.userInfo.username = username;
+			mCached.user = user->GetNonConst();
+		}
 	}
 
 	void System::SetActiveUser(const User* user) {
-		mCached.user.userid = user->userid;
-		mCached.user.username = user->username;
+		mCached.userInfo.userid = user->userid;
+		mCached.userInfo.username = user->username;
+		mCached.user = user->GetNonConst();
 	}
  
-	const SystemCache::ActiveUser& System::GetActiveUser() const {
+	const SystemCache::ActiveUserInfo& System::GetActiveUserInfo() const {
+		return mCached.userInfo;
+	}
+
+	const User* System::GetActiveUser() const {
 		return mCached.user;
 	}
 
 	void System::PrintActiveUser() const {
-		std::cout << "Active User ID: " << mCached.user.userid;
-		std::cout << "\nActive User Name: " << mCached.user.username << std::endl;
+		std::cout << "Active User ID: " << mCached.userInfo.userid;
+		std::cout << "\nActive User Name: " << mCached.userInfo.username << std::endl;
 	}
 
 	const User* System::AddAdministator(const std::string& username, const std::string& password) {

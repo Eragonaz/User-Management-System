@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Input.h"
 
 /*
 * TODO:
@@ -19,7 +20,7 @@ namespace MNGSYS {
 		virtual User* GetNonConst() const;
 		virtual void SerializeData();
 
-		User(const size_t userid, const std::string& username, const std::string& password);
+		User(const size_t userid, const std::string& username, const std::string& password, Input* inputHandler);
 		~User();
 
 	public:
@@ -27,9 +28,12 @@ namespace MNGSYS {
 		std::string username;
 		std::string password;
 
+	protected:
+		Input* mInputHandler;
+
 	private:
 		User(const User& c) = delete;
-	
+		
 	};
 
 }

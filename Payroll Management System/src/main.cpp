@@ -14,34 +14,11 @@ int main() {
 	{
 		System system(input);
 
-		for (size_t i = 0; i < 10000; i++) {
-			system.AddUser<User>("a" + std::to_string(i));
-		}
-
-		system.AddUser<User>("a");
 		system.AddUser<Employee>("b", "c");
-	}
+		system.PromptSignIn();
 
-	{
-		System system(input);
-
-		for (size_t i = 0; i < 10000; i++) {
-			system.AddUser<User>("a" + std::to_string(i));
-		}
-
-		system.AddUser<User>("a");
-		system.AddUser<Employee>("b", "c");
-	}
-
-	{
-		System system(input);
-
-		for (size_t i = 0; i < 10000; i++) {
-			system.AddUser<User>("a" + std::to_string(i));
-		}
-
-		system.AddUser<User>("a");
-		system.AddUser<Employee>("b", "c");
+		Employee* e = system.DerivedUserType<Employee>(system.GetActiveUser()->GetNonConst());
+		std::cout << e->x << std::endl;
 	}
 
 	Input::DestroyInput();
